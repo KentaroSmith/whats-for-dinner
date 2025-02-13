@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block content %}
+<table id="data" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Difficulty</th>
+            <th>Ingredients</th>
+            <th>Category</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for meal in meals %}
+        <tr>
+            <td>{{ meal.name }}</td>
+            <td>{{ meal.difficulty }}</td>
+            <td>{{ meal.ingredients }}</td>
+            <td>{{ meal.category }}</td>
+            <td>{{ meal.time_range }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
