@@ -12,13 +12,11 @@
         </tr>
     </thead>
     <tbody>
-        {% for meal in meals %}
+        {% for row in csv %}
         <tr>
-            <td>{{ meal.name }}</td>
-            <td>{{ meal.difficulty }}</td>
-            <td>{{ meal.ingredients }}</td>
-            <td>{{ meal.category }}</td>
-            <td>{{ meal.time_range }}</td>
+            {% for col in row %}
+            <td>{{ col }}</td>
+            {% endfor %}
         </tr>
         {% endfor %}
     </tbody>

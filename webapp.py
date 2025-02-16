@@ -18,6 +18,7 @@ from waitress import serve
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
+import csv
 
 #actual app 
 app = Flask(__name__)
@@ -33,7 +34,10 @@ logger = logging.getLogger()
 
 @app.route('/')
 def index():
-    return render_template('home.html')
+    csv_meals = "./csv_templates/meal_template.csv"
+    with open(csv_meals) as file:
+        meals = csv.reader(file)
+        return render_template('table.html', title='Bootstrap Table', csv = meals)
 
 @app.route('/refresh_list', methods = ['GET', 'POST'])
 def update_cards():
