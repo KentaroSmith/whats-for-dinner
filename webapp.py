@@ -19,6 +19,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 import csv
+from .app import *
+from .email_sending import submit_email
 
 #actual app 
 app = Flask(__name__)
@@ -46,6 +48,8 @@ def update_cards():
         return render_template("confirmed.html")
     elif request.method == 'GET':
         return render_template('update_cardholders.html')
+
+#create endpoint to send meal list to recipients
 
 app.secret_key = environ.get("SECRET_KEY")
 app.debug = True
